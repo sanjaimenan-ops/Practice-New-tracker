@@ -1,26 +1,21 @@
-# Practice Tracker V1
+# Practice Tracker V1 — Installable PWA
 
-Android starter project for personal keyboard/music practice tracking.
+Phone-first Progressive Web App. No Android Studio or laptop required for development.
 
-## Included
-- Email/password Firebase Authentication
-- Firestore-backed practice-session storage
+## Features
+- Firebase email/password authentication
+- Firestore personal practice sessions
 - Practice timer and session history
-- Audible BPM metronome (40–240 BPM)
-- Trinity Grade 1–8 progress tracking
-- Weekly and monthly practice summaries
-- CSV session export
-- Daily local practice reminders
+- Audible BPM metronome (40–240)
+- Trinity Grade 1–8 progress
+- Weekly/monthly reports and CSV export
+- PWA manifest, service worker and install prompt
+- Daily notification reminder while the app is open (background delivery is not guaranteed)
 
-## Setup
-1. Open this folder in Android Studio with JDK 17.
-2. Create a Firebase project and register Android package `com.sanjaimenan.practice_tracker`.
-3. Enable Email/Password in Firebase Authentication and create Cloud Firestore.
-4. Download `google-services.json` into `app/`.
-5. Apply the rules in `firestore.rules`.
-6. Sync Gradle and run on an Android device.
+## Firebase
+Firebase web config is in app.js. Enable Email/Password Authentication and Firestore in project practice-tracker-5c663. Apply firestore.rules. Each user's records are stored under users/{uid}.
 
-`google-services.json` is intentionally not included. Never commit service-account private keys.
+## Cloudflare Pages
+Connect this GitHub repository. Framework preset: None. Build command: blank. Build output directory: / . Deploy over HTTPS for installation and service workers.
 
-## Testing status
-The source is prepared but has not yet been built with Android SDK or tested against a live Firebase project. Test reminders and metronome timing on-device.
+Cloud data requires internet. The app shell is cached after first visit.
